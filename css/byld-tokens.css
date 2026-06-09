@@ -1,0 +1,91 @@
+/* ============================================================
+   BYLD — Design Tokens
+   Minimalista · técnico · preciso
+   Logo: "byld" minúscula Hanken Grotesk 800 + punto de dato azul
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---- Brand blue (electric, from logo) ---- */
+  --blue:        oklch(0.52 0.215 264);   /* primary */
+  --blue-bright: oklch(0.58 0.225 264);   /* hover */
+  --blue-deep:   oklch(0.42 0.18 264);
+  --blue-tint:   oklch(0.965 0.02 264);
+  --blue-tint-2: oklch(0.93 0.045 264);
+  --blue-soft:   oklch(0.72 0.12 264);    /* on dark */
+
+  /* ---- Ink (cool near-black) ---- */
+  --ink-900: oklch(0.18 0.012 264);
+  --ink-800: oklch(0.255 0.012 264);
+  --ink-700: oklch(0.34 0.012 264);
+  --ink-600: oklch(0.45 0.012 264);
+  --ink-500: oklch(0.55 0.012 264);
+  --ink-400: oklch(0.66 0.012 264);
+  --ink-300: oklch(0.78 0.01 264);
+
+  /* ---- Surfaces / lines ---- */
+  --bg:        #ffffff;
+  --surface:   oklch(0.985 0.002 264);
+  --surface-2: oklch(0.965 0.004 264);
+  --line:      oklch(0.92 0.005 264);
+  --line-strong: oklch(0.86 0.006 264);
+
+  /* ---- Support accents (states only) ---- */
+  --green: oklch(0.62 0.16 155);
+  --amber: oklch(0.72 0.16 75);
+  --red:   oklch(0.60 0.18 25);
+
+  /* ---- Type ---- */
+  --font-display: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-sans: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* ---- Radii ---- */
+  --r-xs: 4px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 28px;
+
+  /* ---- Shadow (soft, technical) ---- */
+  --shadow-sm: 0 1px 2px oklch(0.2 0.02 264 / 0.06);
+  --shadow-md: 0 4px 20px oklch(0.2 0.02 264 / 0.07), 0 1px 3px oklch(0.2 0.02 264 / 0.05);
+  --shadow-lg: 0 24px 60px oklch(0.2 0.02 264 / 0.10), 0 4px 12px oklch(0.2 0.02 264 / 0.05);
+}
+
+* { box-sizing: border-box; }
+
+/* ============================================================
+   BYLD WORDMARK — "byld" + punto de dato
+   Usage:
+     <span class="byld-logo"><span class="word">byld</span><span class="dot"></span></span>
+   Size via --logo-size; invert with .invert
+   ============================================================ */
+.byld-logo {
+  --logo-size: 40px;
+  --logo-ink: var(--ink-900);
+  --logo-blue: var(--blue);
+  display: inline-flex;
+  align-items: flex-end;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: var(--logo-size);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+  color: var(--logo-ink);
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+}
+.byld-logo .word { display: inline-block; }
+.byld-logo .dot {
+  width: 0.17em;
+  height: 0.17em;
+  background: var(--logo-blue);
+  border-radius: 0.035em;
+  margin-left: 0.08em;
+  margin-bottom: 0.085em;
+  flex: none;
+}
+.byld-logo.invert { --logo-ink: #fff; }
