@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>byld — Software e Inteligencia Artificial para Empresas en Hermosillo, Sonora</title>
-<meta name="description" content="byld construye software a la medida, inteligencia de negocio y agentes de IA para empresas en Hermosillo, Obregón, Navojoa y todo Sonora, México. Agenda un diagnóstico.">
+<title>byld — Software a la medida e IA para la operación | Sonora</title>
+<meta name="description" content="Software a la medida, inteligencia de negocio y agentes de IA que operan flota, producción, inventario y costos. Minería, agro y sector público en Sonora.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://byld.com.mx/">
 
@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="byld">
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://byld.com.mx/">
-<meta property="og:title" content="byld — Software e Inteligencia Artificial para Empresas en Sonora">
-<meta property="og:description" content="Desarrollo de software a la medida, inteligencia de negocio y agentes de IA conectados a la operación real de tu empresa. Hermosillo, Obregón, Navojoa y todo México.">
+<meta property="og:title" content="byld — Software a la medida e IA para la operación">
+<meta property="og:description" content="Sistemas que no solo registran: entienden y actúan sobre la operación real. Minería, agroindustria, transporte y sector público en Hermosillo, Sonora y todo México.">
 <meta property="og:image" content="https://byld.com.mx/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,8 +22,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="byld — Software e Inteligencia Artificial para Empresas en Sonora">
-<meta name="twitter:description" content="Software a la medida, inteligencia de negocio y agentes de IA conectados a la operación real de tu empresa. Hermosillo, Obregón, Navojoa y todo México.">
+<meta name="twitter:title" content="byld — Software a la medida e IA para la operación">
+<meta name="twitter:description" content="Sistemas que no solo registran: entienden y actúan sobre la operación real. Minería, agroindustria, transporte y sector público en Sonora y todo México.">
 <meta name="twitter:image" content="https://byld.com.mx/og-image.png">
 <meta name="twitter:image:alt" content="byld — Construimos sistemas inteligentes para empresas.">
 
@@ -37,27 +37,117 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "byld",
-  "description": "byld construye software a la medida, inteligencia de negocio y agentes de inteligencia artificial que se conectan a los procesos y datos reales de una empresa.",
-  "url": "https://byld.com.mx/",
-  "email": "dev@byld.com.mx",
-  "telephone": "+52-662-178-8674",
-  "image": "https://byld.com.mx/og-image.png",
-  "logo": "https://byld.com.mx/icon-512.png",
-  "areaServed": [
-    {"@type": "City", "name": "Hermosillo"},
-    {"@type": "City", "name": "Obregón"},
-    {"@type": "City", "name": "Navojoa"},
-    {"@type": "State", "name": "Sonora"},
-    {"@type": "Country", "name": "México"}
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Hermosillo",
-    "addressRegion": "Sonora",
-    "addressCountry": "MX"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://byld.com.mx/#organization",
+      "name": "byld",
+      "url": "https://byld.com.mx/",
+      "slogan": "Construimos sistemas inteligentes para empresas.",
+      "description": "byld construye software a la medida, inteligencia de negocio y agentes de inteligencia artificial que se conectan a los procesos y datos reales de una empresa.",
+      "email": "dev@byld.com.mx",
+      "telephone": "+52-662-178-8674",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://byld.com.mx/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://byld.com.mx/og-image.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hermosillo",
+        "addressRegion": "Sonora",
+        "addressCountry": "MX"
+      },
+      "knowsAbout": [
+        "Desarrollo de software a la medida",
+        "Inteligencia de negocio",
+        "Agentes de inteligencia artificial",
+        "Automatización de procesos",
+        "Integración de sistemas",
+        "Análisis de datos operativos"
+      ],
+      "areaServed": [
+        {"@type": "City", "name": "Hermosillo"},
+        {"@type": "City", "name": "Ciudad Obregón"},
+        {"@type": "City", "name": "Navojoa"},
+        {"@type": "City", "name": "Guaymas"},
+        {"@type": "City", "name": "Nogales"},
+        {"@type": "State", "name": "Sonora"},
+        {"@type": "Country", "name": "México"}
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://byld.com.mx/#website",
+      "url": "https://byld.com.mx/",
+      "name": "byld",
+      "inLanguage": "es-MX",
+      "publisher": {"@id": "https://byld.com.mx/#organization"}
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://byld.com.mx/#localbusiness",
+      "name": "byld",
+      "url": "https://byld.com.mx/",
+      "image": "https://byld.com.mx/og-image.png",
+      "email": "dev@byld.com.mx",
+      "telephone": "+52-662-178-8674",
+      "parentOrganization": {"@id": "https://byld.com.mx/#organization"},
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hermosillo",
+        "addressRegion": "Sonora",
+        "addressCountry": "MX"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Hermosillo"},
+        {"@type": "City", "name": "Ciudad Obregón"},
+        {"@type": "City", "name": "Navojoa"},
+        {"@type": "City", "name": "Guaymas"},
+        {"@type": "City", "name": "Nogales"},
+        {"@type": "State", "name": "Sonora"},
+        {"@type": "Country", "name": "México"}
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://byld.com.mx/#servicio-software",
+      "name": "Desarrollo de software a la medida",
+      "serviceType": "Desarrollo de software a la medida",
+      "description": "Sistemas propios que centralizan procesos, sustituyen operaciones manuales y conectan áreas: plataformas de operación, integraciones entre sistemas y arquitectura de datos.",
+      "provider": {"@id": "https://byld.com.mx/#organization"},
+      "areaServed": [
+        {"@type": "State", "name": "Sonora"},
+        {"@type": "Country", "name": "México"}
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://byld.com.mx/#servicio-inteligencia-de-negocio",
+      "name": "Inteligencia de negocio",
+      "serviceType": "Business Intelligence y análisis de datos",
+      "description": "Convertimos la información de la operación en inteligencia: análisis comercial y operativo, rentabilidad y costos, tendencias y detección de anomalías.",
+      "provider": {"@id": "https://byld.com.mx/#organization"},
+      "areaServed": [
+        {"@type": "State", "name": "Sonora"},
+        {"@type": "Country", "name": "México"}
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://byld.com.mx/#servicio-agentes-de-ia",
+      "name": "Agentes de inteligencia artificial",
+      "serviceType": "Implementación de inteligencia artificial en empresas",
+      "description": "Agentes conectados a los datos y sistemas reales de la empresa, capaces de vigilar procesos, analizar, anticipar y ejecutar acciones dentro de la operación.",
+      "provider": {"@id": "https://byld.com.mx/#organization"},
+      "areaServed": [
+        {"@type": "State", "name": "Sonora"},
+        {"@type": "Country", "name": "México"}
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -599,16 +689,19 @@
 <!-- INDUSTRIAS -->
 <section class="industrias-sec" id="industrias" data-screen-label="Industrias"><div class="wrap">
   <div class="sec-head reveal">
-    <span class="eyebrow">Experiencia</span>
-    <h2 style="margin-top:16px;">Distintas industrias. El mismo objetivo: convertir la operación en inteligencia.</h2>
-    <p>Software a la medida e implementación de IA para empresas en Sonora y México — la misma inteligencia, aplicada a cada industria.</p>
+    <span class="eyebrow">Sectores</span>
+    <h2 style="margin-top:16px;">Minería, agroindustria, transporte y sector público. La misma inteligencia en cada operación.</h2>
+    <p>Software a la medida, inteligencia de negocio e implementación de IA para las industrias que mueven a Sonora — y para empresas en todo México.</p>
   </div>
   <div class="sectgrid reveal">
-    <div class="sectcard"><h4>Transporte y logística</h4><p>Inteligencia de negocio, rentabilidad, flota, costos y mantenimiento.</p></div>
-    <div class="sectcard"><h4>Industria y producción</h4><p>Control operativo, producción, trazabilidad y automatización.</p></div>
-    <div class="sectcard"><h4>Sector público</h4><p>Análisis comercial, cartera, desempeño operativo y toma de decisiones.</p></div>
-    <div class="sectcard"><h4>Retail e inventarios</h4><p>Abastecimiento, punto de reorden, POS, compras y análisis de inventario.</p></div>
-    <div class="sectcard"><h4>Inteligencia de negocio</h4><p>Análisis financiero, operativo y comercial para detectar desviaciones, oportunidades y tendencias.</p></div>
+    <div class="sectcard"><h4>Minería y acarreos</h4><p>Control de flota y viajes, costo por tonelada, mantenimiento de maquinaria y reportes al cliente minero.</p></div>
+    <div class="sectcard"><h4>Agua y sector público</h4><p>Producción y distribución, padrón de usuarios, facturación, pérdidas de red y desempeño operativo.</p></div>
+    <div class="sectcard"><h4>Agroindustria</h4><p>Trazabilidad de campo a empaque, costo por hectárea, calidad y control de exportación.</p></div>
+    <div class="sectcard"><h4>Transporte y logística</h4><p>Rentabilidad por ruta y unidad, flota, combustible, costos y mantenimiento preventivo.</p></div>
+    <div class="sectcard"><h4>Industria y manufactura</h4><p>Control operativo, producción, trazabilidad, merma y automatización de planta.</p></div>
+    <div class="sectcard"><h4>Alimentos y ganadería</h4><p>Producción, inventario en frío, sanidad, costos y trazabilidad para exportación.</p></div>
+    <div class="sectcard"><h4>Construcción</h4><p>Avance de obra, maquinaria, materiales, costos por frente y control de contratistas.</p></div>
+    <div class="sectcard"><h4>Retail e inventarios</h4><p>Abastecimiento, punto de reorden, punto de venta, compras y análisis de inventario.</p></div>
     <div class="sectcard"><h4>Servicios y comercio</h4><p>Agentes de IA, atención, ventas, reservaciones y automatización comercial.</p></div>
   </div>
 </div></section>
