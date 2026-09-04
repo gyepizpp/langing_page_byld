@@ -13,24 +13,3 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
-
-# Las tres paginas de servicio se consolidaron en la home a peticion del
-# cliente. Redireccion permanente para que Google transfiera las senales
-# a la pagina principal en vez de leerlo como error.
-[[redirects]]
-  from = "/software-a-la-medida/*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/implementacion-de-ia/*"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/inteligencia-de-negocio/*"
-  to = "/"
-  status = 301
-  force = true
