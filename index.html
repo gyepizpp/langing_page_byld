@@ -240,20 +240,6 @@
   @media(max-width:900px){ .sectgrid{grid-template-columns:1fr 1fr;} }
   @media(max-width:560px){ .sectgrid{grid-template-columns:1fr;} }
 
-  /* ===== CASOS ===== */
-  .casos{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px;}
-  .caso{border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; background:var(--card); transition:.18s;}
-  .caso:hover{border-color:var(--blue); box-shadow:var(--shadow-md);}
-  .caso .logo-box{height:110px; display:flex; align-items:center; justify-content:center; background:var(--ink-900); padding:22px;}
-  html[data-theme="dark"] .caso .logo-box{background:oklch(0.12 0.012 264);}
-  .caso .logo-box.light{background:#fff; border-bottom:1px solid var(--line);}
-  .caso .logo-box img{max-height:52px; max-width:78%; object-fit:contain;}
-  .caso .body{padding:22px 24px;}
-  .caso .body .tag{font-family:var(--font-mono); font-size:10.5px; color:var(--ink-400); text-transform:uppercase; letter-spacing:.06em;}
-  .caso .body h4{font-family:var(--font-display); font-weight:700; font-size:16px; margin:10px 0 6px; letter-spacing:-.005em;}
-  .caso .body p{font-size:13.5px; color:var(--ink-600); margin:0; line-height:1.5;}
-  @media(max-width:900px){ .casos{grid-template-columns:1fr;} }
-
   /* ===== CLIENTES ===== */
   .cli-sec{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .cli-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:20px; margin-top:52px;}
@@ -375,7 +361,7 @@
     .nav .wrap{height:60px;}
     .nav .btn.primary{padding:9px 15px; font-size:13.5px;}
     .sec-head h2{font-size:26px;}
-    .shift, .pillars, .proc, .agentgrid, .sectgrid, .casos{margin-top:32px;}
+    .shift, .pillars, .proc, .agentgrid, .sectgrid, .cli-grid{margin-top:32px;}
     .final{padding:44px 26px; border-radius:var(--r-lg);}
   }
 </style>
@@ -621,27 +607,6 @@
   </div>
 </div></section>
 
-<!-- CASOS -->
-<section id="casos" hidden data-screen-label="Casos de éxito"><div class="wrap">
-  <div class="sec-head reveal">
-    <span class="eyebrow">Casos</span>
-    <h2 style="margin-top:16px;">Empresas reales que ya operan con byld.</h2>
-  </div>
-  <div class="casos reveal">
-    <div class="caso">
-      <div class="logo-box"><img src="assets/clients/mtm.png" alt="Grupo MTM" loading="lazy"></div>
-      <div class="body"><span class="tag">Grupo MTM</span><h4>Operación multi-sucursal centralizada</h4><p>Un solo sistema para medir y controlar todas sus unidades de negocio.</p></div>
-    </div>
-    <div class="caso">
-      <div class="logo-box light"><img src="assets/clients/agua.png" alt="Agua de Hermosillo" loading="lazy"></div>
-      <div class="body"><span class="tag">Agua de Hermosillo</span><h4>Producción y distribución bajo control</h4><p>Visibilidad de planta y ruta que antes vivía en hojas sueltas.</p></div>
-    </div>
-    <div class="caso">
-      <div class="logo-box light"><img src="assets/clients/gerrys.png" alt="Carnicería Gerrys" loading="lazy"></div>
-      <div class="body"><span class="tag">Carnicería Gerrys</span><h4>Inventario y costos en tiempo real</h4><p>Decisiones diarias con datos, no con memoria.</p></div>
-    </div>
-  </div>
-</div></section>
 
 <!-- CLIENTES -->
 <section class="cli-sec" id="clientes" data-screen-label="Clientes"><div class="wrap">
