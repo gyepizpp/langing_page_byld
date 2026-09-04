@@ -254,6 +254,21 @@
   .caso .body p{font-size:13.5px; color:var(--ink-600); margin:0; line-height:1.5;}
   @media(max-width:900px){ .casos{grid-template-columns:1fr;} }
 
+  /* ===== CLIENTES ===== */
+  .cli-sec{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .cli-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:20px; margin-top:52px;}
+  .cli-card{background:var(--card); border:1px solid var(--line); border-radius:var(--r-lg); height:190px; display:flex; align-items:center; justify-content:center; padding:22px 24px; transition:.18s;}
+  .cli-card:hover{border-color:var(--blue); box-shadow:var(--shadow-md); transform:translateY(-2px);}
+  .cli-card img{max-width:100%; max-height:100%; object-fit:contain; display:block;}
+  .cli-card img.mono{filter:brightness(0) opacity(.62); transform:scale(.84);}
+  .cli-card img.tall{transform:scale(1.22);}
+  .cli-card.brand-blue{background:#2B5BFD; border-color:#2B5BFD;}
+  .cli-card.brand-blue:hover{border-color:#5C82FF;}
+  .cli-note{font-family:var(--font-mono); font-size:12px; color:var(--ink-400); margin-top:22px; letter-spacing:.03em;}
+  @media(max-width:1000px){ .cli-grid{grid-template-columns:repeat(3,1fr);} }
+  @media(max-width:680px){ .cli-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:480px){ .cli-card{height:140px; padding:18px;} }
+
   /* ===== DONDE OPERAMOS ===== */
   .geo-sec{background:var(--ink-900); color:#fff; border-top:1px solid var(--line); position:relative; overflow:hidden;}
   .geo-sec .gb{position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px); background-size:52px 52px; mask-image:radial-gradient(110% 90% at 20% 0%,#000,transparent 70%); pointer-events:none;}
@@ -303,9 +318,56 @@
   footer .links{display:flex; gap:24px; font-size:14px; color:var(--ink-600);}
   footer .fl{font-family:var(--font-mono); font-size:12px; color:var(--ink-400);}
 
-  .reveal{opacity:0; transform:translateY(16px); transition:.6s cubic-bezier(.22,1,.36,1);}
+  /* ===== MOTION ===== */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);}
   .reveal.in{opacity:1; transform:none;}
-  @media(prefers-reduced-motion:reduce){ .reveal{opacity:1; transform:none;} }
+  .stagger > *{opacity:0; transform:translateY(24px); transition:opacity .62s cubic-bezier(.22,1,.36,1), transform .62s cubic-bezier(.22,1,.36,1); transition-delay:calc(var(--i,0) * 70ms);}
+  .stagger.in > *{opacity:1; transform:none;}
+  .sec-head h2{opacity:0; transform:translateY(14px); transition:opacity .75s cubic-bezier(.22,1,.36,1) .06s, transform .75s cubic-bezier(.22,1,.36,1) .06s;}
+  .sec-head.in h2, .reveal.in .sec-head h2, .sec-head.in > h2{opacity:1; transform:none;}
+  .reveal.in h2{opacity:1; transform:none;}
+
+  /* scroll progress */
+  .sprog{position:fixed; top:0; left:0; height:2px; width:100%; z-index:80; background:transparent; pointer-events:none;}
+  .sprog i{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--blue),var(--blue-bright)); transition:width .12s linear;}
+
+  /* nav condense */
+  .nav{transition:height .25s, box-shadow .25s, background .25s;}
+  .nav .wrap{transition:height .28s cubic-bezier(.22,1,.36,1);}
+  .nav.small .wrap{height:58px;}
+  .nav.small{box-shadow:0 1px 20px rgba(0,0,0,.06);}
+
+  /* hero entrance */
+  @keyframes heroIn{from{opacity:0; transform:translateY(20px)}to{opacity:1; transform:none}}
+  .hero-copy > *{animation:heroIn .8s cubic-bezier(.22,1,.36,1) both;}
+  .hero-copy > *:nth-child(1){animation-delay:.05s}
+  .hero-copy > *:nth-child(2){animation-delay:.15s}
+  .hero-copy > *:nth-child(3){animation-delay:.25s}
+  .hero-copy > *:nth-child(4){animation-delay:.35s}
+  @keyframes gridDrift{from{background-position:0 0, 0 0}to{background-position:52px 52px, 52px 52px}}
+  .hero .grid-bg{animation:gridDrift 28s linear infinite;}
+  @keyframes gridDrift2{from{background-position:0 0, 0 0}to{background-position:-42px 42px, -42px 42px}}
+  .final .gb{animation:gridDrift2 34s linear infinite;}
+
+  /* cards */
+  .pillar, .phase, .agent, .sectcard, .cli-card{transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s, border-color .2s, background .2s;}
+  .cli-card:hover{transform:translateY(-4px);}
+  .cli-card img{transition:transform .35s cubic-bezier(.22,1,.36,1);}
+  .cli-card:hover img{transform:scale(1.06);}
+  .cli-card.brand-blue:hover img, .cli-card:hover img.mono{transform:scale(.89);}
+  .cli-card:hover img.tall{transform:scale(1.3);}
+
+  /* map entrance */
+  @keyframes dotIn{from{opacity:0; transform:scale(.2)}to{opacity:1; transform:none}}
+  .geo-map .city-g{opacity:0; animation:dotIn .55s cubic-bezier(.34,1.56,.64,1) both; transform-origin:center; transform-box:fill-box;}
+  .geo-map .son{opacity:0; animation:sonIn .9s cubic-bezier(.22,1,.36,1) .35s both;}
+  @keyframes sonIn{from{opacity:0}to{opacity:1}}
+  .geo-map .mx-body{opacity:0; animation:sonIn .9s ease-out both;}
+
+  @media(prefers-reduced-motion:reduce){
+    .reveal,.stagger > *,.sec-head h2{opacity:1 !important; transform:none !important;}
+    .hero-copy > *, .hero .grid-bg, .final .gb, .geo-map .city-g, .geo-map .son, .geo-map .mx-body{animation:none !important; opacity:1 !important;}
+  }
 
   @media(max-width:600px){
     .wrap{padding:0 20px;}
@@ -320,12 +382,14 @@
 </head>
 <body>
 
-<nav class="nav"><div class="wrap">
+<div class="sprog"><i id="sprog-bar"></i></div>
+<nav class="nav" id="nav"><div class="wrap">
   <a href="#" style="display:inline-flex;"><byld-lock size="22"></byld-lock></a>
   <div class="links">
     <a href="#pilares">Qué hacemos</a>
     <a href="#progresion">Cómo lo construimos</a>
     <a href="#agentes">Agentes</a>
+    <a href="#clientes">Nuestro trabajo</a>
   </div>
   <a href="#contacto" class="btn primary sm">Agendar diagnóstico</a>
 </div></nav>
@@ -334,7 +398,7 @@
 <header class="hero" data-screen-label="Hero">
   <div class="grid-bg"></div>
   <div class="hero-in">
-    <div>
+    <div class="hero-copy">
       <span class="eyebrow">Software · Datos · Inteligencia artificial</span>
       <h1>Construimos sistemas inteligentes para <span class="blue">empresas.</span></h1>
       <p class="lede">Combinamos desarrollo de software, inteligencia de negocio, automatización e inteligencia artificial para transformar la operación de una empresa a partir de sus procesos, datos y conocimiento.</p>
@@ -579,6 +643,21 @@
   </div>
 </div></section>
 
+<!-- CLIENTES -->
+<section class="cli-sec" id="clientes" data-screen-label="Clientes"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">Nuestro trabajo</span>
+    <h2 style="margin-top:16px;">Operaciones que hoy corren sobre sistemas byld.</h2>
+  </div>
+  <div class="cli-grid reveal">
+    <div class="cli-card"><img src="assets/clients/mtm-grad.png" alt="Grupo MTM" loading="lazy"></div>
+    <div class="cli-card"><img src="assets/clients/fyamsa.png" alt="Fletes y Acarreos Mineros" loading="lazy"></div>
+    <div class="cli-card"><img src="assets/clients/padel-inv2.png" alt="Padel Storage" loading="lazy"></div>
+    <div class="cli-card"><img class="mono" src="assets/clients/seven.png" alt="Seven Pádel Club" loading="lazy"></div>
+    <div class="cli-card"><img class="tall" src="assets/clients/agua-hmo.jpeg" alt="Agua de Hermosillo" loading="lazy"></div>
+  </div>
+</div></section>
+
 <!-- DONDE OPERAMOS -->
 <section class="geo-sec" id="donde" data-screen-label="Dónde operamos"><div class="gb"></div><div class="wrap">
   <div class="geo-in">
@@ -619,6 +698,7 @@
   <byld-lock size="20"></byld-lock>
   <div class="links">
     <a href="#pilares">Qué hacemos</a><a href="#agentes">Agentes</a>
+    <a href="#clientes">Nuestro trabajo</a>
   </div>
   <span class="fl">© 2026 byld · Sistemas inteligentes para empresas.</span>
 </div></footer>
@@ -635,6 +715,25 @@
   }
   revealVisible();
   window.addEventListener('load', revealVisible);
+
+  // stagger + nav + progress
+  document.querySelectorAll('.pillars, .proc, .agentgrid, .sectgrid, .cli-grid, .casos, .shift').forEach(g=>{
+    g.classList.add('stagger');
+    [...g.children].forEach((c,i)=>c.style.setProperty('--i',i));
+    if(!g.classList.contains('reveal')) g.classList.add('reveal');
+    io.observe(g);
+  });
+  const navEl = document.getElementById('nav'), bar = document.getElementById('sprog-bar');
+  function onScroll(){
+    const y = window.scrollY || 0;
+    if(navEl) navEl.classList.toggle('small', y > 60);
+    if(bar){
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? (y/max)*100 : 0) + '%';
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 
   const steps = [...document.querySelectorAll('.step')];
   const panes = [...document.querySelectorAll('.vpane')];
@@ -708,7 +807,7 @@
   const cg=g.append('g');
   CITIES.forEach((c,i)=>{
     const p=proj(c.c); if(!p) return;
-    const gg=cg.append('g').attr('transform','translate('+p[0]+','+p[1]+')');
+    const gg=cg.append('g').attr('transform','translate('+p[0]+','+p[1]+')').append('g').attr('class','city-g').style('animation-delay',(0.7+i*0.13)+'s');
     gg.append('circle').attr('class','city-pulse').attr('r',6).style('animation-delay',(i*.45)+'s');
     gg.append('circle').attr('class','city-ring').attr('r',7);
     gg.append('circle').attr('class','city-dot').attr('r',3.6);
