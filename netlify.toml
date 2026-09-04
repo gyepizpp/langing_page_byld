@@ -2,6 +2,12 @@
   publish = "."
   command = ""
 
+# Netlify puede reescribir /archivo.html como /archivo. El archivo de
+# verificacion de Google Search Console debe servirse en su ruta literal,
+# asi que se desactiva ese comportamiento.
+[build.processing.html]
+  pretty_urls = false
+
 [[headers]]
   for = "/*"
   [headers.values]
