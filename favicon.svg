@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="byld">
-  <rect width="100" height="100" rx="22" fill="#0D0F12"/>
-  <g fill="none" stroke="#FFFFFF" stroke-width="12.76" stroke-linecap="round">
-    <path d="M38.4 17.52 H22.16 A4.64 4.64 0 0 0 17.52 22.16 V77.84 A4.64 4.64 0 0 0 22.16 82.48 H38.4"/>
-    <path d="M61.6 17.52 H77.84 A4.64 4.64 0 0 1 82.48 22.16 V77.84 A4.64 4.64 0 0 1 77.84 82.48 H61.6"/>
+  <rect width="100" height="100" rx="0" fill="#2F5DF5"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="10.56" stroke-linecap="round">
+    <path d="M40.4 23.12 H26.96 A3.84 3.84 0 0 0 23.12 26.96 V73.04 A3.84 3.84 0 0 0 26.96 76.88 H40.4"/>
+    <path d="M59.6 23.12 H73.04 A3.84 3.84 0 0 1 76.88 26.96 V73.04 A3.84 3.84 0 0 1 73.04 76.88 H59.6"/>
   </g>
-  <rect x="36.08" y="36.08" width="27.84" height="27.84" rx="6.96" fill="#2F5DF5"/>
+  <rect x="38.48" y="38.48" width="23.04" height="23.04" rx="5.76" fill="#FFFFFF"/>
 </svg>

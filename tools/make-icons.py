@@ -16,14 +16,13 @@ from PIL import Image, ImageDraw
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-INK = (13, 15, 18, 255)        # --ink-900, fondo del mosaico
-LIGHT = (255, 255, 255, 255)   # corchetes
-BLUE = (47, 93, 245, 255)      # --blue
+BLUE = (47, 93, 245, 255)      # --blue, fondo del mosaico
+LIGHT = (255, 255, 255, 255)   # marca (corchetes + dato)
 
 SS = 16          # supersampling
 BOX = 100.0      # espacio de diseno de la marca (mismo viewBox que byld-brand.js)
-MARK_SCALE = 1.16  # la marca ocupa ~78% del mosaico (en la web ocupa 67%)
-TILE_RADIUS = 0.22  # radio de esquina del mosaico, en fraccion del lado
+MARK_SCALE = 0.96   # la marca ocupa ~64% del mosaico
+TILE_RADIUS = 0.0   # radio de esquina del mosaico, en fraccion del lado
 
 
 def scaled(v):
@@ -31,7 +30,7 @@ def scaled(v):
     return 50.0 + (v - 50.0) * MARK_SCALE
 
 
-def draw_mark(size, rounded_tile=True, bg=INK):
+def draw_mark(size, rounded_tile=None, bg=BLUE):
     """Dibuja el mosaico con la marca byld a `size` px."""
     n = size * SS
     u = n / BOX  # unidades de diseno -> px
@@ -39,7 +38,7 @@ def draw_mark(size, rounded_tile=True, bg=INK):
     img = Image.new("RGBA", (n, n), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
 
-    if rounded_tile:
+    if TILE_RADIUS if rounded_tile is None else rounded_tile:
         d.rounded_rectangle([0, 0, n - 1, n - 1], radius=n * TILE_RADIUS, fill=bg)
     else:
         d.rectangle([0, 0, n - 1, n - 1], fill=bg)
@@ -81,7 +80,7 @@ def draw_mark(size, rounded_tile=True, bg=INK):
     d.rounded_rectangle(
         [c0 * u, c0 * u, c1 * u, c1 * u],
         radius=6.0 * MARK_SCALE * u,
-        fill=BLUE,
+        fill=LIGHT,
     )
 
     return img.resize((size, size), Image.LANCZOS)
@@ -107,13 +106,13 @@ def build_svg():
     return (
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" '
         'role="img" aria-label="byld">\n'
-        f'  <rect width="100" height="100" rx="{f(100 * TILE_RADIUS)}" fill="#0D0F12"/>\n'
+        f'  <rect width="100" height="100" rx="{f(100 * TILE_RADIUS)}" fill="#2F5DF5"/>\n'
         f'  <g fill="none" stroke="#FFFFFF" stroke-width="{f(sw)}" stroke-linecap="round">\n'
         f'    <path d="{left}"/>\n'
         f'    <path d="{right}"/>\n'
         '  </g>\n'
         f'  <rect x="{f(c0)}" y="{f(c0)}" width="{f(c1 - c0)}" height="{f(c1 - c0)}" '
-        f'rx="{f(cr)}" fill="#2F5DF5"/>\n'
+        f'rx="{f(cr)}" fill="#FFFFFF"/>\n'
         '</svg>\n'
     )
 
@@ -132,8 +131,8 @@ def main():
         draw_mark(size).save(os.path.join(ROOT, name))
         print("wrote", name, f"{size}x{size}")
 
-    # apple-touch-icon: iOS aplica su propia mascara, mosaico sin redondear.
-    draw_mark(180, rounded_tile=False).save(os.path.join(ROOT, "apple-touch-icon.png"))
+    # apple-touch-icon: iOS aplica su propia mascara sobre el mosaico cuadrado.
+    draw_mark(180).save(os.path.join(ROOT, "apple-touch-icon.png"))
     print("wrote apple-touch-icon.png 180x180")
 
     # favicon.ico multi-resolucion (lo que rastrea Google como respaldo).
