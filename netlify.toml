@@ -13,3 +13,18 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+
+# Dominio adicional byld.mx (y www.byld.mx): redirige todo a byld.com.mx
+# con 301, para que Google vea un solo sitio y no contenido duplicado.
+# No hace nada hasta que byld.mx se agregue como alias en Netlify.
+[[redirects]]
+  from = "https://byld.mx/*"
+  to = "https://byld.com.mx/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.byld.mx/*"
+  to = "https://byld.com.mx/:splat"
+  status = 301
+  force = true
