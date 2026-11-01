@@ -3,7 +3,7 @@
    Mientras siga el valor de ejemplo, el script no carga nada.
    Ademas de las visitas, registra los clics a WhatsApp y al correo. */
 (function(){
-  const GA_ID = 'G-XXXXXXXXXX';
+  const GA_ID = 'G-W2JBS0EX2J';
   if(!/^G-[A-Z0-9]+$/.test(GA_ID) || GA_ID === 'G-XXXXXXXXXX') return;
 
   const s = document.createElement('script');
