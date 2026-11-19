@@ -61,6 +61,45 @@
     io.observe(g);
   });
 
+  /* ---------- clientes: fila con scroll horizontal y flechas ---------- */
+  document.querySelectorAll('.cli-grid').forEach(g=>{
+    const icon = d=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+d+'"/></svg>';
+    const nav = document.createElement('div');
+    nav.className = 'cli-nav';
+    nav.innerHTML = '<button type="button" aria-label="Ver clientes anteriores">'+icon('M15 18l-6-6 6-6')+'</button>'+
+                    '<button type="button" aria-label="Ver más clientes">'+icon('M9 18l6-6-6-6')+'</button>';
+    g.after(nav);
+    const [prev, next] = nav.querySelectorAll('button');
+    const step = ()=>{
+      const c = g.querySelector('.cli-card');
+      return c ? c.getBoundingClientRect().width + parseFloat(getComputedStyle(g).columnGap || 0) : g.clientWidth * .8;
+    };
+    // Los clics seguidos se acumulan aunque la animación anterior no haya terminado
+    let target = null, settle;
+    const go = dir=>{
+      const max = g.scrollWidth - g.clientWidth;
+      const base = target === null ? g.scrollLeft : target;
+      target = Math.max(0, Math.min(max, base + dir * step()));
+      g.scrollTo({left:target, behavior: reduce ? 'auto' : 'smooth'});
+      clearTimeout(settle); settle = setTimeout(()=>{ target = null; }, 700);
+    };
+    prev.addEventListener('click', ()=>go(-1));
+    next.addEventListener('click', ()=>go(1));
+    g.addEventListener('scroll', ()=>{ clearTimeout(settle); settle = setTimeout(()=>{ target = null; }, 160); }, {passive:true});
+    const update = ()=>{
+      const max = g.scrollWidth - g.clientWidth;
+      nav.hidden = max < 4;
+      g.classList.toggle('scrolled', g.scrollLeft > 4);
+      g.classList.toggle('at-end', g.scrollLeft >= max - 4);
+      prev.disabled = g.scrollLeft <= 4;
+      next.disabled = g.scrollLeft >= max - 4;
+    };
+    g.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    update();
+  });
+
   /* ---------- luz que sigue al cursor en tarjetas ---------- */
   const spots = document.querySelectorAll('.pillar, .phase, .agent, .sectcard, .linkcard, .cli-card');
   spots.forEach(c=>c.classList.add('spot'));
