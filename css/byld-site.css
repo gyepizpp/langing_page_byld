@@ -187,7 +187,8 @@
 
   /* ===== CLIENTES ===== */
   .cli-sec{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .cli-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:52px;}
+  .cli-grid{--cli-gap:20px; display:flex; flex-wrap:wrap; justify-content:center; gap:var(--cli-gap); margin-top:52px;}
+  .cli-grid > .cli-card{flex:0 0 calc((100% - 2 * var(--cli-gap)) / 3); min-width:0;}
   .cli-card{background:var(--card); border:1px solid var(--line); border-radius:var(--r-lg); height:190px; display:flex; align-items:center; justify-content:center; padding:22px 24px; transition:.18s;}
   .cli-card:hover{border-color:var(--blue); box-shadow:var(--shadow-md); transform:translateY(-2px);}
   .cli-card img{max-width:100%; max-height:100%; object-fit:contain; display:block;}
@@ -196,8 +197,8 @@
   .cli-card.brand-blue{background:#2B5BFD; border-color:#2B5BFD;}
   .cli-card.brand-blue:hover{border-color:#5C82FF;}
   .cli-note{font-family:var(--font-mono); font-size:12px; color:var(--ink-400); margin-top:22px; letter-spacing:.03em;}
-  @media(max-width:680px){ .cli-grid{gap:12px;} .cli-card{height:130px; padding:16px;} }
-  @media(max-width:480px){ .cli-grid{gap:8px;} .cli-card{height:96px; padding:10px 12px; border-radius:var(--r-md);} }
+  @media(max-width:680px){ .cli-grid{--cli-gap:12px;} .cli-card{height:130px; padding:16px;} }
+  @media(max-width:480px){ .cli-grid{--cli-gap:8px;} .cli-card{height:96px; padding:10px 12px; border-radius:var(--r-md);} }
 
   /* ===== DONDE OPERAMOS ===== */
   .geo-sec{background:var(--ink-900); color:#fff; border-top:1px solid var(--line); position:relative; overflow:hidden;}
